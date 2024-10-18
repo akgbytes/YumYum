@@ -1,5 +1,6 @@
 import appLogo from "../../assets/app-logo.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 function Header() {
   const [btnText, setBtnText] = useState("Login");
   return (
@@ -9,16 +10,20 @@ function Header() {
       </div>
       <div className="nav-links">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="auth-btn"
             onClick={() => {
-              console.log(btnText);
               setBtnText(btnText === "Login" ? "Logout" : "Login");
-              console.log(btnText);
             }}
           >
             {btnText}
